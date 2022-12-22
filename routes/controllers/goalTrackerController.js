@@ -2,7 +2,7 @@ const log = console.log;
 
 // route: GET /api/goalTracker
 // access: public (for now)
-const getGoals = (req, res) => {
+const getGoals = async (req, res) => {
 	if (!req.body.text) {
 		res.status(400);
 		throw new Error("pls add a text field");
@@ -13,20 +13,20 @@ const getGoals = (req, res) => {
 
 // route: POST /api/goalTracker
 // access: public (for now)
-const addGoal = (req, res) => {
+const addGoal = async (req, res) => {
 	log(req.body);
 	res.status(200).json({ task: "add a goal" });
 };
 
 // route: PUT /api/goalTracker
 // access: public (for now)
-const editGoal = (req, res) => {
+const editGoal = async (req, res) => {
 	res.status(200).json({ task: `edit goal: ${req.params.id}` });
 };
 
 // route: DELETE /api/goalTracker
 // access: public (for now)
-const deleteGoal = (req, res) => {
+const deleteGoal = async (req, res) => {
 	res.status(200).json({ task: `delete goal ${req.params.id}` });
 };
 
