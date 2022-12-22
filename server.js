@@ -7,7 +7,7 @@ const app = express();
 const log = console.log;
 
 app.get("/api/goalTracker", (req, res) => {
-	res.json({ "test goal": "drink 3L water" });
+	res.status(200).json({ "test goal": "drink 3L water" });
 });
 
 app.listen(PORT, () => log(`now listening on port ${PORT}:)`));
