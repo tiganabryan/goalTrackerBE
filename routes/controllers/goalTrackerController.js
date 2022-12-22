@@ -1,15 +1,31 @@
+const log = console.log;
+
+// route: GET /api/goalTracker
+// access: public (for now)
 const getGoals = (req, res) => {
-	res.status(200).json({ task: "get goals" });
+	if (!req.body.text) {
+		res.status(400);
+		throw new Error("pls add a text field");
+	} else {
+		res.status(200).json({ task: "get goals" });
+	}
 };
 
+// route: POST /api/goalTracker
+// access: public (for now)
 const addGoal = (req, res) => {
+	log(req.body);
 	res.status(200).json({ task: "add a goal" });
 };
 
-const updateGoal = (req, res) => {
-	res.status(200).json({ task: `update goal: ${req.params.id}` });
+// route: PUT /api/goalTracker
+// access: public (for now)
+const editGoal = (req, res) => {
+	res.status(200).json({ task: `edit goal: ${req.params.id}` });
 };
 
+// route: DELETE /api/goalTracker
+// access: public (for now)
 const deleteGoal = (req, res) => {
 	res.status(200).json({ task: `delete goal ${req.params.id}` });
 };
@@ -17,6 +33,6 @@ const deleteGoal = (req, res) => {
 module.exports = {
 	getGoals,
 	addGoal,
-	updateGoal,
+	editGoal,
 	deleteGoal,
 };

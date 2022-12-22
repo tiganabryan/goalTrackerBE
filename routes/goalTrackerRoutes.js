@@ -3,7 +3,7 @@ const router = express.Router();
 const {
 	getGoals,
 	addGoal,
-	updateGoal,
+	editGoal,
 	deleteGoal,
 } = require("./controllers/goalTrackerController");
 
@@ -11,7 +11,7 @@ router.get("", getGoals);
 
 router.post("", addGoal);
 
-router.put("/:id", updateGoal);
+router.put("/:id", editGoal);
 
 router.delete("/:id", deleteGoal);
 
