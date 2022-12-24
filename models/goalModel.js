@@ -7,13 +7,13 @@ const goalSchema = new Schema(
 			type: String,
 			required: true,
 		},
-	},
-	{
 		achieved: {
-			type: Number | Boolean,
+			type: Boolean,
 			default: false,
+			required: true,
 		},
 	},
+
 	{
 		timestamps: true,
 	}
