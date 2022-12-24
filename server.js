@@ -3,13 +3,12 @@ const { errorHandler } = require("./middleware/errorMiddleware");
 const PORT = process.env.PORT || 5000;
 
 const colors = require("colors");
-
-const express = require("express");
-const connectDB = require("./config/db");
-const app = express();
-
 const log = console.log;
 
+const express = require("express");
+const app = express();
+
+const connectDB = require("./config/db");
 connectDB();
 
 app.use(express.json());

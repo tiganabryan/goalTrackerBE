@@ -1,6 +1,8 @@
 const asyncHandler = require("express-async-handler");
 const log = console.log;
 
+const goal = require("../../models/goalModel");
+
 // route: GET /api/goalTracker
 // access: public (for now)
 const getGoals = asyncHandler(async (req, res) => {
