@@ -28,13 +28,36 @@ const addGoal = asyncHandler(async (req, res) => {
 // route: PUT /api/goalTracker
 // access: public (for now)
 const editGoal = asyncHandler(async (req, res) => {
-	res.status(200).json({ task: `edit goal: ${req.params.id}` });
+	const goal = await Goal.findById(req.params.id);
+
+	if (!goal) {
+		res.status(400);
+		throw new Error("goal not found. please try again");
+	}
+
+	const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {
+		new: true,
+	});
+	// 'new' will create the goal if it doesn't exist
+
+	res.status(200).json(updatedGoal);
 });
 
 // route: DELETE /api/goalTracker
 // access: public (for now)
 const deleteGoal = asyncHandler(async (req, res) => {
-	res.status(200).json({ task: `delete goal ${req.params.id}` });
+	const goal = await Goal.findById(req.params.id);
+
+	if (!goal) {
+		res.status(400);
+		throw new Error("goal not found. please try again");
+	}
+
+	await goal.remove();
+	// don't need variable since it's being deleted right away
+
+	res.status(200).json({ id: req.params.id });
+	// return id for frontend
 });
 
 module.exports = {
