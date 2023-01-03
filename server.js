@@ -14,7 +14,7 @@ connectDB();
 
 app.use(
 	cors({
-		origin: "https://goaltracker-api.onrender.com",
+		origin: "https://goaltracker-tigana.onrender.com",
 	})
 );
 app.use(express.json());
