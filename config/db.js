@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 const log = console.log;
 
+const mongoURI = `mongodb+srv://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@cluster0.rdrwnfy.mongodb.net/goalTracker?retryWrites=true&w=majority:27017/goalTracker`;
+
 const connectDB = async () => {
 	try {
-		const conn = await mongoose.connect(process.env.MONGO_URI);
+		const conn = await mongoose.connect(mongoURI);
 
 		log(`connected to mongoDB! ${conn.connection.host}`.blue.underline);
 	} catch (err) {
