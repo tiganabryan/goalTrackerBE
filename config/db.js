@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const log = console.log;
 
-const mongoURI = `mongodb+srv://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@cluster0.rdrwnfy.mongodb.net/goalTracker?retryWrites=true&w=majority:27017/goalTracker`;
+const mongoURI = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@cluster0.rdrwnfy.mongodb.net/goalTracker?retryWrites=true&w=majority:27017/goalTracker`;
 
 const connectDB = async () => {
 	try {
