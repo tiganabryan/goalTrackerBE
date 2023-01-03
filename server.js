@@ -14,7 +14,7 @@ connectDB();
 
 app.use(
 	cors({
-		origin: "http://localhost:3000",
+		origin: "https://goaltracker-api.onrender.com",
 	})
 );
 app.use(express.json());
